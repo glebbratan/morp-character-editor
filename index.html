@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Личное дело — редактор персонажей</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="top">
+      <h1>Личное дело</h1>
+      <p>Редактор персонажей</p>
+    </header>
+
+    <main class="layout">
+      <section class="editor">
+
+        <div class="panel" id="look">
+          <h2>Внешность</h2>
+          <div id="pickers" class="pickers"></div>
+          <button type="button" class="btn ghost" id="random">Случайный облик</button>
+        </div>
+
+        <form class="panel" id="form" autocomplete="off">
+          <h2>Анкета</h2>
+
+          <label class="field">
+            <span>Имя</span>
+            <input id="name" type="text" maxlength="60" placeholder="Имя и фамилия">
+          </label>
+
+          <div class="row two">
+            <div class="field">
+              <span>Пол</span>
+              <div class="seg">
+                <input type="radio" name="gender" id="g-m" value="Мужской" checked>
+                <label for="g-m">Мужской</label>
+                <input type="radio" name="gender" id="g-f" value="Женский">
+                <label for="g-f">Женский</label>
+              </div>
+            </div>
+            <label class="field">
+              <span>Возраст (25–70)</span>
+              <input id="age" type="number" min="25" max="70" step="1" value="35" inputmode="numeric">
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Национальность</span>
+            <select id="nationality"></select>
+          </label>
+          <label class="field" id="natCustomWrap" hidden>
+            <span>Укажите национальность</span>
+            <input id="natCustom" type="text" maxlength="40">
+          </label>
+
+          <label class="field">
+            <span>Должность</span>
+            <input id="job" type="text" maxlength="60">
+          </label>
+
+          <label class="field">
+            <span>Религия</span>
+            <select id="religion"></select>
+          </label>
+
+          <div class="row two">
+            <label class="field">
+              <span>Город нахождения</span>
+              <input id="city" type="text" maxlength="40">
+            </label>
+            <label class="field">
+              <span>Город происхождения</span>
+              <input id="origin" type="text" maxlength="40">
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Краткая история <em id="count">0 / 700</em></span>
+            <textarea id="bio" rows="6" maxlength="700"></textarea>
+          </label>
+        </form>
+      </section>
+
+      <aside class="preview">
+        <div class="sticky">
+          <canvas id="card" aria-label="Карточка персонажа"></canvas>
+          <button type="button" class="btn primary" id="save">Сохранить картинку</button>
+          <p class="note" id="note" role="status"></p>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
